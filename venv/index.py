@@ -2,12 +2,26 @@ import math
 
 
 def checkNum(inputNum):
-    number = 0
-    prime = "2,"
-    for number in range(2, int(inputNum)+1):
-        if int(number) % 2 != 0:
-            prime += str(number)+","
-    print(prime)
+    p = 2
+    prime = [True]*(int(inputNum)-1)
+    while True:
+        multi = 2
+        calculate = p * multi
+        while calculate <= int(inputNum):
+            prime[calculate - 2] = False
+            multi += 1
+            calculate = p * multi
+
+        for i, pri in enumerate(prime):
+            if pri and i + 2 > p:
+                p = i + 2
+                break
+        else:
+            break
+
+    for i, pri in enumerate(prime):
+        if pri:
+            print(i+2)
     main()
 
 
