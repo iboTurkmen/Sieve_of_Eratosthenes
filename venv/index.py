@@ -1,8 +1,14 @@
+import math
 
 
-
-
-
+def checkNum(inputNum):
+    number = 0
+    prime = "2,"
+    for number in range(2, int(inputNum)+1):
+        if int(number) % 2 != 0:
+            prime += str(number)+","
+    print(prime)
+    main()
 
 
 def main():
